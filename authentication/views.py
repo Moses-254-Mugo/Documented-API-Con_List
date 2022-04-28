@@ -1,3 +1,4 @@
+from typing import Generic
 from urllib import response
 from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
@@ -16,3 +17,11 @@ class ReigsterView(GenericAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class LoginView(GenericAPIView):
+    def post(self, request):
+        data = request.data
+        username = data.get('username', '')
+        password = data.get('password', '')
+        pass
+     
