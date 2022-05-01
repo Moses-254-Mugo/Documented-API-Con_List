@@ -41,6 +41,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication',
 ]
+REST_FRAMEWORK ={
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -117,7 +124,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+# JWT
 JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
 # Static files (CSS, JavaScript, Images)

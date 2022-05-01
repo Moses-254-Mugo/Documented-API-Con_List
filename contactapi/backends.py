@@ -1,7 +1,10 @@
-from asyncio import exceptions
 import jwt
-from rest_framework import authentication
+from rest_framework import authentication, exceptions
 from django.conf import settings
+from django.contrib.auth.models import User
+
+
+
 
 class JWTAuthentication(authentication.BaseAuthentication):
     def authentication(self, request):
@@ -11,12 +14,18 @@ class JWTAuthentication(authentication.BaseAuthentication):
             return None
         
 
-        prefix, token = auth_data.decode('utf-8').split(' ')
-
+        prefix, token = auth_data.decode('utf-8').split('')
+ 
         try:
             payload = jwt.decode(token, settings.JWT_SECRET_KEY)
-        except jwt.DecodeError as identifire:
-            raise exceptions.AuthenticationFailed
+            user= User.objects.get(username=payload['username'])
+            return (user, token)
+
+        except jwt.DecodeError as identifier:
+            raise exceptions.AuthenticationFailed('Your token is invalid, login')
+        
+        except jwt.ExpiredSignatureError as identifier:
+            raise exceptions.AuthenticationFailed('Your token is expired, login')
  
 
         return super().authenticate(request)
