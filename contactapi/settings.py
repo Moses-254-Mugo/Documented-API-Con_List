@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_yasg',
     'authentication',
     'contacts',
+    
 ]
 REST_FRAMEWORK ={
     'DEFAULT_AUTHENTICATION_CLASSES': (

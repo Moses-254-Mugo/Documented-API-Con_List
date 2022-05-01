@@ -26,7 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.ModelSerializer):
-    passowrd = serializers.CharField(max_length=65, min_length=8, write_only=True)
+    password = serializers.CharField(max_length=65, min_length=8, write_only=True)
     username = serializers.CharField(max_length=80)
 
     class Meta:
