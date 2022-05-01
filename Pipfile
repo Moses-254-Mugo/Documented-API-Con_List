@@ -9,6 +9,8 @@ psycopg2 = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "==4.6.0"
 drf-yasg = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
