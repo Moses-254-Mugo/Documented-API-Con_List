@@ -9,7 +9,7 @@ Mugo Moses
 Documenting API app
 
 ## Screenshots
-<img src="images/Documented_cont-api-app.png" alt="">
+<!-- <img src="images/Documented_cont-api-app.png" alt=""> -->
 
 
 
